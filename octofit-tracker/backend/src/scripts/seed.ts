@@ -54,6 +54,11 @@ export async function seed() {
       { $set: { title: 'Strength Circuit', focus: 'strength', minutes: 30, difficulty: 'moderate' } },
       { upsert: true },
     );
+    await Workout.updateOne(
+      { title: 'Easy Recovery Ride' },
+      { $set: { title: 'Easy Recovery Ride', focus: 'endurance', minutes: 20, difficulty: 'easy' } },
+      { upsert: true },
+    );
   } finally {
     await disconnectDatabase();
   }
